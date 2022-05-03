@@ -3,13 +3,31 @@ const mongoose = require("mongoose");
 const ProductSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "must provide a name"],
-    trim: true,
-    maxlength: [20, "name cannot be more than 20 cahracters"],
+    required: [true, "product name must be provided"],
   },
-  shipping: {
-    type: Boolean,
-    default: false,
+  price: {
+    type: Number,
+    required: [true, "product price must be provided"],
+  },
+  description: {
+    type: String,
+    required: [true, "product description must be provided"],
+  },
+  imgURL: {
+    type: String,
+    required: true,
+  },
+  colors: {
+    type: [String],
+    required: true,
+  },
+  rating: {
+    type: Number,
+    default: 4.5,
+  },
+  reviews: {
+    type: Number,
+    default: 60,
   },
 });
 
